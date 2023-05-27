@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { HomeIcon, HomeFillIcon, SearchIcon, SearchFillIcon, NewIcon, NewFillIcon } from "./ui/icons";
 import ColorButton from "./ui/ColorButton";
 import { useSession, signIn, signOut } from 'next-auth/react'
-import Avatar from "./ui/Avatar";
+import Avatar from "./Avatar";
 
 const menu = [
     {
@@ -37,7 +37,7 @@ export default function Navbar() {
                 }
                 {user && <li>
                     <Link href={`/user/${user.username}`}>
-                        <Avatar image={user.image} />
+                        <Avatar image={user.image} size='small' hightlight />
                     </Link>
                 </li>}
                 <li>
