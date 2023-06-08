@@ -8,7 +8,7 @@ export default function Avatar({ image, size='normal', hightlight=false }: Props
 
     return <div className={getContainerStyle(size, hightlight)}>
         {/*eslint-disable-next-line @next/next/no-img-element */}
-        <img className={`bg-white rounded-full p-[0.1rem] ${getImageSizeStyle(size)}`} alt='user profile' src={image ?? undefined} referrerPolicy="no-referrer"></img>
+        <img className={`bg-white object-cover rounded-full p-[0.1rem] ${getImageSizeStyle(size)}`} alt='user profile' src={image ?? undefined} referrerPolicy="no-referrer"></img>
     </div>
 }
 "w-9 h-9 rounded-full "
