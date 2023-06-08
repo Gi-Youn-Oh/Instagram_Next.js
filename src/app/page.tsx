@@ -11,7 +11,7 @@ export default async function HomePage() {
   const user = session?.user;
 
   if (!user) {
-    redirect('/auth/singin');
+    redirect('/auth/signin');
   }
 
   return (
