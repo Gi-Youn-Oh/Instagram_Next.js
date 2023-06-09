@@ -4,6 +4,9 @@ import SearchIcon from "./SearchIcon";
 import SearchFillIcon from "./SearchFillIcon";
 import NewIcon from "./NewIcon";
 import NewFillIcon from "./NewFillIcon";
+import BookmarkIcon from "./BookmarkIcon";
+import HeartIcon from "./HeartIcon";
+import SmileIcon from "./SmileIcon";
 
 export {
     HomeIcon,
@@ -11,5 +14,8 @@ export {
     SearchIcon,
     SearchFillIcon,
     NewIcon,
-    NewFillIcon
+    NewFillIcon,
+    BookmarkIcon,
+    HeartIcon,
+    SmileIcon
 };
