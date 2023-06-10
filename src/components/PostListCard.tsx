@@ -8,7 +8,8 @@ import CommentForm from "./CommentForm";
 import { useState } from "react";
 import ModalPortal from "./ui/ModalPortal";
 import PostMordal from "./PostMordal";
-import { setOriginalNode } from "typescript";
+import PostDetail from "./PostDetail";
+import PostUserAvatar from "./PostUserAvatar";
 
 type Props = {
     post: SimplePost;
@@ -21,10 +22,7 @@ export default function PostListCard({ post, priority = false }: Props) {
 
     return (
         <article className="rounded-lg shadow-md border border-gray-200">
-            <div className="flex items-center p-2">
-                <Avatar image={userImage} size="medium" hightlight />
-                <span className="text-gray-900 font-bold ml-2">{username}</span>
-            </div>
+            <PostUserAvatar image={userImage} username={username} />
             <Image
                 className="w-full object-cover aspect-square"
                 src={image} alt={`photo by ${username}`} width={500} height={500} priority={priority}
@@ -34,7 +32,7 @@ export default function PostListCard({ post, priority = false }: Props) {
             {
                 openMordal && <ModalPortal>
                     <PostMordal onClose={() => setOpenMordal(false)}>
-                        <p>포스트 상세 페이지</p>
+                        <PostDetail post={post} />
                     </PostMordal>
                 </ModalPortal>
             }
