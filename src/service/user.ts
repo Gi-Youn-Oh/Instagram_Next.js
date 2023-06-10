@@ -1,14 +1,15 @@
+import { ProfileUser } from "@/model/user";
 import { client } from "./sanity";
 
 type OAuthUser = {
     id: string;
-    email: string; 
+    email: string;
     name: string;
     username: string;
     image?: string | null;
 };
 
-export async function addUser({id, username, email, image, name}: OAuthUser) {
+export async function addUser({ id, username, email, image, name }: OAuthUser) {
     return client.createIfNotExists({
         _id: id,
         _type: 'user',
@@ -34,7 +35,7 @@ export async function getUserByUsername(username: string) {
     )
 }
 
-export async function searchUsers(keyword? : string) {
+export async function searchUsers(keyword?: string) {
     const query = keyword ? `&& (name match "${keyword}") || (username match "${keyword}*")` : ''
     return client.fetch(
         `*[_type == "user" ${query}]{
@@ -42,5 +43,8 @@ export async function searchUsers(keyword? : string) {
             "following": count(following),
             "followers": count(following),
         }`
-    )
+    ).then((users) => users.map((user: ProfileUser) => ({
+        ...user, following: user.following ?? 0, followers: user.followers ?? 0
+    }))
+    );
 }
