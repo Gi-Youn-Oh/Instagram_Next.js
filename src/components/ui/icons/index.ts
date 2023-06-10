@@ -7,6 +7,7 @@ import NewFillIcon from "./NewFillIcon";
 import BookmarkIcon from "./BookmarkIcon";
 import HeartIcon from "./HeartIcon";
 import SmileIcon from "./SmileIcon";
+import PostIcon from "./PostIcon";
 
 export {
     HomeIcon,
@@ -17,5 +18,6 @@ export {
     NewFillIcon,
     BookmarkIcon,
     HeartIcon,
-    SmileIcon
+    SmileIcon,
+    PostIcon
 };
