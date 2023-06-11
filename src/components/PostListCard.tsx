@@ -4,7 +4,7 @@ import { SimplePost } from "@/model/post";
 import Image from "next/image";
 import ActionBar from "./ActionBar";
 import Avatar from "./Avatar";
-import CommentForm from "./CommentForm";
+import CommentForm from "./CommentForm"; 
 import { useState } from "react";
 import ModalPortal from "./ui/ModalPortal";
 import PostMordal from "./PostMordal";
