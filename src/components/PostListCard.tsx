@@ -27,7 +27,7 @@ export default function PostListCard({ post, priority = false }: Props) {
                 className="w-full object-cover aspect-square"
                 src={image} alt={`photo by ${username}`} width={500} height={500} priority={priority}
                 onClick={() => setOpenMordal(true)} />
-            <ActionBar likes={likes} username={username} text={text} createdAt={createdAt} />
+            <ActionBar post={post} />
             <CommentForm />
             {
                 openMordal && <ModalPortal>
