@@ -4,7 +4,7 @@ import { SimplePost } from "@/model/post";
 import Image from "next/image";
 import ActionBar from "./ActionBar";
 import Avatar from "./Avatar";
-import CommentForm from "./CommentForm"; 
+import CommentForm from "./CommentForm";
 import { useState } from "react";
 import ModalPortal from "./ui/ModalPortal";
 import PostMordal from "./PostMordal";
@@ -17,7 +17,7 @@ type Props = {
 }
 
 export default function PostListCard({ post, priority = false }: Props) {
-    const { username, userImage, image, createdAt, likes, text } = post;
+    const { username, userImage, image, comments, text } = post;
     const [openMordal, setOpenMordal] = useState(false);
 
     return (
@@ -27,7 +27,15 @@ export default function PostListCard({ post, priority = false }: Props) {
                 className="w-full object-cover aspect-square"
                 src={image} alt={`photo by ${username}`} width={500} height={500} priority={priority}
                 onClick={() => setOpenMordal(true)} />
-            <ActionBar post={post} />
+            <ActionBar post={post}>
+                <p>
+                    <span className='font-bold mr-1'>{username}</span>
+                    {text}
+                </p>
+                {comments > 1 && <button 
+                className="font-bold my-2 text-sky-500"
+                onClick={() => setOpenMordal(true)}>{`View all ${comments} comments`}</button>}
+            </ActionBar>
             <CommentForm />
             {
                 openMordal && <ModalPortal>

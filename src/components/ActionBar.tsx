@@ -1,20 +1,19 @@
 import { BookmarkIcon, HeartIcon } from "./ui/icons";
 import { parseDate } from "@/util/date";
-import { useState } from "react";
 import ToggleButton from "./ui/ToggleButton";
 import HeartFillIcon from "./ui/icons/HeartFillIcon";
 import BookmarkFillIcon from "./ui/icons/BookmarkFillIcon";
 import { SimplePost } from "@/model/post";
-import { useSession } from "next-auth/react";
 import usePosts from "@/hooks/posts";
 import useMe from "@/hooks/me";
 
 type Props = {
     post: SimplePost;
+    children?: React.ReactNode;
 }
 
-export default function ActionBar({ post }: Props) {
-    const { id, likes, username, text, createdAt } = post;
+export default function ActionBar({ post, children }: Props) {
+    const { id, likes, createdAt } = post;
     const { user, setBookmark } = useMe();
     const { setLike } = usePosts();
 
@@ -48,12 +47,7 @@ export default function ActionBar({ post }: Props) {
             <div className='px-4 py-1'>
                 <p className='text-sm font-bold mb-2'>{`${likes?.length ?? 0} ${likes?.length > 1 ? 'likes' : 'like'
                     }`}</p>
-                {text && (
-                    <p>
-                        <span className='font-bold mr-1'>{username}</span>
-                        {text}
-                    </p>
-                )}
+                {children}
                 <p className='text-xs text-neutral-500 uppercase my-2'>
                     {parseDate(createdAt)}
                 </p>
