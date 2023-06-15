@@ -1,5 +1,5 @@
 # Instagram Clone Coding
-프로젝트 [링크](https://instagram-next-js-one.vercel.app/)
+프로젝트 링크: https://instagram-next-js-one.vercel.app/
 
 ### [프로젝트 개요]
 
