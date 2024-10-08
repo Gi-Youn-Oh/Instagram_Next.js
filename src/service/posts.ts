@@ -92,7 +92,7 @@ export async function addComment(postId: string, userId: string, comment: string
         .append('comments', [
             {
                 comment,
-                author: { _ref: userId, _type: 'referenct' },
+                author: { _ref: userId, _type: 'reference' },
             },
         ])
         .commit({ autoGenerateArrayKeys: true });
