@@ -99,7 +99,6 @@ export async function addComment(postId: string, userId: string, comment: string
 }
 
 export async function createPost(userId: string, text: string, file: Blob) {
-    console.log(userId, text, file);
   
     return fetch(assetsURL, {
       method: 'POST',
